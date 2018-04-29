@@ -26,4 +26,5 @@
 /config/master.key
 
 # Ignore secrets
-/config/secrets.yml
+/config/storage.yml
+/config/master.key
