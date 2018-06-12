@@ -20,6 +20,7 @@ class PortfolioResourcesController < ApplicationController
     end
   end
   def show
+    @portfolio_item = PortfolioResource.find(params[:id])
   end
 
   def edit
