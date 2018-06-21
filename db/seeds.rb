@@ -43,3 +43,9 @@ end
 		thumb_image:"http://via.placeholder.com/350x150"
 		)
 end
+
+3.times do |technology|
+	PortfolioResource.last.technologies.create!(
+		name: "Technology #{technology+1}"
+		)
+end
