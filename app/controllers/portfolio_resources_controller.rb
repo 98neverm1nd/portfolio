@@ -2,6 +2,10 @@ class PortfolioResourcesController < ApplicationController
 	def index
 		@portfolio_items = PortfolioResource.all
 	end
+  def angular
+    @angular_portfolio_items = PortfolioResource.angular
+  end
+
 
 	def new
 		@portfolio_item = PortfolioResource.new
