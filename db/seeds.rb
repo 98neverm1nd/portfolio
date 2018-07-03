@@ -4,6 +4,8 @@
 		)
 end
 
+puts "3 topics created"
+
 
 10.times do |blog|
 	Blog.create!(
@@ -44,8 +46,12 @@ end
 		)
 end
 
+puts "9 portfolios created"
+
 3.times do |technology|
 	PortfolioResource.last.technologies.create!(
 		name: "Technology #{technology+1}"
 		)
 end
+
+puts "3 technologies created"
