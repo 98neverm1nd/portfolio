@@ -2,16 +2,21 @@ class PortfolioResourcesController < ApplicationController
 	def index
 		@portfolio_items = PortfolioResource.all
 	end
+  def angular
+    @angular_portfolio_items = PortfolioResource.angular
+  end
+
 
 	def new
 		@portfolio_item = PortfolioResource.new
+    3.times { @portfolio_item.technologies.build }
 	end
 	def create
-  	@portfolio_item = PortfolioResource.new(params.require(:portfolio_resource).permit(:title, :subtitle, :body))
+  	@portfolio_item = PortfolioResource.new(params.require(:portfolio_resource).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to @portfolio_item, notice: 'Portfolio item was successfully created.' }
+        format.html { redirect_to portfolio_resources_url, notice: 'Portfolio item was successfully created.' }
         format.json { render :show, status: :created, location: @portfolio_item }
       else
         format.html { render :new }

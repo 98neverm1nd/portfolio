@@ -1,7 +1,17 @@
+3.times do |topic|
+	Topic.create!(
+		title: "Topic #{topic+1}"
+		)
+end
+
+puts "3 topics created"
+
+
 10.times do |blog|
 	Blog.create!(
 		title: "My blog post #{blog+1}",
-		body: "Fake info"
+		body: "Fake info",
+		topic_id: Topic.last.id
 		)
 end
 
@@ -16,12 +26,32 @@ end
 
 puts "5 skills created"
 
-9.times do |portfolio_item|
+8.times do |portfolio_item|
 	PortfolioResource.create!(
 		title: "Portfolio #{portfolio_item+1}",
-		subtitle: "My project",
+		subtitle: "Ruby on Rails",
 		body: "Description of my project",
 		main_image: "http://via.placeholder.com/700x400",
 		thumb_image:"http://via.placeholder.com/350x150"
 		)
 end
+
+1.times do |portfolio_item|
+	PortfolioResource.create!(
+		title: "Portfolio #{portfolio_item+1}",
+		subtitle: "Angular",
+		body: "Description of my project",
+		main_image: "http://via.placeholder.com/700x400",
+		thumb_image:"http://via.placeholder.com/350x150"
+		)
+end
+
+puts "9 portfolios created"
+
+3.times do |technology|
+	PortfolioResource.last.technologies.create!(
+		name: "Technology #{technology+1}"
+		)
+end
+
+puts "3 technologies created"
