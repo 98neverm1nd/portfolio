@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :portfolio_resources, except: [:show]
 
   root to:'pages#home'
