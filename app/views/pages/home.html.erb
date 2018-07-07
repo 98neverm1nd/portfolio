@@ -1,5 +1,13 @@
-<h1>Hi, <%= current_user.first_name if current_user%></h1>
+<% if current_user %>
+<h1> Hi, <%= current_user.first_name %> </h1> 
+<% end %>
+ 
+<h2>Blogs</h2>
 <p><%= @blogs.inspect %></p>
+
+<h2>Skills</h2>
 <p><%= @skills.inspect %></p>
+
+<h2>Portfolios</h2>
 <p><%= @portfolio_resources.inspect %></p>
 
