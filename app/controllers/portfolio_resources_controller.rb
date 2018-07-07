@@ -12,7 +12,7 @@ class PortfolioResourcesController < ApplicationController
     3.times { @portfolio_item.technologies.build }
 	end
 	def create
-  	@portfolio_item = PortfolioResource.new(params.require(:portfolio_resource).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+  	@portfolio_item = PortfolioResource.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
@@ -43,7 +43,7 @@ class PortfolioResourcesController < ApplicationController
   def update
     @portfolio_item = PortfolioResource.find(params[:id])
     respond_to do |format|
-      if @portfolio_item.update(params.require(:portfolio_resource).permit(:title, :subtitle, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to @portfolio_item, notice: 'Portfolio was successfully updated.' }
         format.json { render :show, status: :ok, location: @portfolio_item }
       else
@@ -51,5 +51,13 @@ class PortfolioResourcesController < ApplicationController
         format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
       end
     end
+  end
+  private
+  def portfolio_params
+    params.require(:portfolio_resource).permit(:title, 
+                                               :subtitle, 
+                                               :body, 
+                                               technologies_attributes: [:name]
+                                              )
   end
 end
