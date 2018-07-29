@@ -62,3 +62,6 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 #jquery
 gem 'jquery-rails'
+
+#petergate
+gem 'petergate', '~> 1.8', '>= 1.8.1'
