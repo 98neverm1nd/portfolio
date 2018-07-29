@@ -1,5 +1,5 @@
 class PortfolioResourcesController < ApplicationController
-  
+  access all: [:show, :index], user: {except: [:edit, :new, :create, :update, :destroy]}, site_admin: :all
 
 	def index
 		@portfolio_items = PortfolioResource.all
