@@ -1,6 +1,10 @@
 class PortfolioResourcesController < ApplicationController
+<<<<<<< HEAD
   before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
   layout "portfolio"
+=======
+  
+>>>>>>> bootstrap
 
 	def index
 		@portfolio_items = PortfolioResource.all
