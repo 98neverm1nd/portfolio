@@ -1,10 +1,5 @@
 class PortfolioResourcesController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
-  layout "portfolio"
-=======
   
->>>>>>> bootstrap
 
 	def index
 		@portfolio_items = PortfolioResource.all
@@ -31,11 +26,12 @@ class PortfolioResourcesController < ApplicationController
       end
     end
   end
-
   def show
+    @portfolio_item = PortfolioResource.find(params[:id])
   end
 
   def destroy
+    @portfolio_item = PortfolioResource.find(params[:id])
     @portfolio_item.destroy
     respond_to do |format|
       format.html { redirect_to portfolio_resources_url, notice: 'Portfolio item was successfully destroyed.' }
@@ -44,9 +40,10 @@ class PortfolioResourcesController < ApplicationController
   end
 
   def edit
+    @portfolio_item = PortfolioResource.find(params[:id])
   end
-
   def update
+    @portfolio_item = PortfolioResource.find(params[:id])
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to @portfolio_item, notice: 'Portfolio was successfully updated.' }
@@ -64,9 +61,5 @@ class PortfolioResourcesController < ApplicationController
                                                :body, 
                                                technologies_attributes: [:name]
                                               )
-  end
-
-  def set_portfolio_item
-    @portfolio_item = PortfolioResource.find(params[:id])
   end
 end
