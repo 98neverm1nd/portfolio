@@ -111,3 +111,19 @@ body {
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+/*
+ *Custom styles
+ */
+
+.card-body{
+  color: black;
+  text-align: left;
+  font-size: 16px;
+}
+#cancel-block{
+  align-self: center;
+  text-align: center;
+}
+.darktext{
+  color:black;
+}
