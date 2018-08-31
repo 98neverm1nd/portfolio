@@ -124,4 +124,25 @@ body {
   align-self: center;
   text-align: center;
 }
+#headline{
+  text-align: center;
+  font-style: bold solid;
+}
+.side-link{
+  color:black;
+}
 
+.side-link:hover{
+  color:black;
+}
+.login > .card, .signup >.card{
+  width: 60%;
+}
+.edit > .card{
+  width: 75%;
+}
+.card{
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
